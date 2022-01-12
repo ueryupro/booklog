@@ -31,9 +31,12 @@ app.get("/janken", (req, res) => {
   } else {
     userHand = "グー、チョキ、パーのいずれかを入力してください";
   }
+
+  const cpHand = Math.floor(Math.random() * 3);
   res.json({
     "ok": true,
-    "hand": userHand
+    "your-hand": userHand,
+    "cp-hand": cpHand
   })
 })
 
