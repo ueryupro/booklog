@@ -21,9 +21,19 @@ app.use(express.json());
 
 app.get("/janken", (req, res) => {
   const hand = req.body.hand;
+  let userHand = undefined;
+  if (hand === "グー") {
+    userHand = 0;
+  } else if (hand === "チョキ") {
+    userHand = 1;
+  } else if (hand === "パー") {
+    userHand = 2;
+  } else {
+    userHand = "グー、チョキ、パーのいずれかを入力してください";
+  }
   res.json({
     "ok": true,
-    "hand": hand
+    "hand": userHand
   })
 })
 
